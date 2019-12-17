@@ -20,6 +20,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Interaction" t="Include">
+            <e p="FloorPointer.cs" t="Include" />
             <e p="Interactable.cs" t="Include" />
             <e p="InteractableFloor.cs" t="Include" />
             <e p="InteractableObject.cs" t="Include" />

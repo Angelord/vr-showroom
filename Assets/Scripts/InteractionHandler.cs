@@ -12,8 +12,11 @@ namespace Showroom {
 			this._camera = camera;
 		}
 
-		public void PreventClick() {
+		public void PreventInteraction() {
 			_clickCanceled = true;
+		
+			_targetInteractable?.OnPreviewFocusLost(new InteractionEvent());
+			_targetInteractable = null;
 		}
 
 		public void Update() {

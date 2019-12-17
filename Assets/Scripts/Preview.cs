@@ -40,7 +40,7 @@ namespace Showroom {
         
         private void Update() {
             if (Locked) {
-                _interactionHandler.PreventClick();
+                _interactionHandler.PreventInteraction();
             }
 
             _interactionHandler.Update();

@@ -23,7 +23,7 @@ namespace Showroom.Navigation {
         }
 
         private void Update() {
-
+            
             if(Input.GetMouseButton(0)) {
                 Vector3 offset = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0.0f);
                 offset *= _rotateSensitivity;
@@ -33,8 +33,10 @@ namespace Showroom.Navigation {
                 Vector3 rotation = transform.rotation.eulerAngles;
                 rotation.z = 0.0f;
                 transform.rotation = Quaternion.Euler(rotation);
-            
-                _rotating = offset.sqrMagnitude > 0.1f;
+
+                if (offset.sqrMagnitude > 0.1f) {
+                    _rotating = true;
+                }
             }
             else {
                 _rotating = false;

@@ -57,9 +57,14 @@ namespace Showroom.Navigation {
 
                 Vector3 lookDir = _focusPoint.position - transform.position;
                 Vector3 camRight = Vector3.Cross(lookDir, Vector3.up);
-;                _focusPoint.Rotate(camRight, offset.y, Space.World);
+                _focusPoint.Rotate(camRight, offset.y, Space.World);
 
-                _rotating = offset.sqrMagnitude > 0.1f;
+                if (offset.sqrMagnitude > 0.1f) {
+                    _rotating = true;
+                }
+            }
+            else {
+                _rotating = false;
             }
         }
     }
