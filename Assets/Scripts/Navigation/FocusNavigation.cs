@@ -8,6 +8,7 @@ namespace Showroom.Navigation {
         [SerializeField] private float _rotateSensitivity = 2.0f;
         private InteractableObject _target;
         private Transform _focusPoint;
+        private bool _focusing;
         private bool _rotating;
         
         public override bool Locked => _rotating;
@@ -31,6 +32,7 @@ namespace Showroom.Navigation {
             transform.SetParent(null);
             _focusPoint.position = _target.transform.position;
             transform.SetParent(_focusPoint);
+            _focusing = true;
             
             var tween = transform.DOMove(_target.InitialTransform.position, 1.5f);
             tween.onUpdate += () => {
@@ -41,12 +43,13 @@ namespace Showroom.Navigation {
 
             tween.onComplete += () => {
                 transform.LookAt(target.transform.position);
+                _focusing = false;
             };
         }
 
         private void Update() {
 
-            if(Input.GetMouseButton(0)) {
+            if(!_focusing && Input.GetMouseButton(0)) {
                 Vector3 offset = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
                 offset *= _rotateSensitivity;
 
