@@ -3,6 +3,7 @@ using DG.Tweening.Plugins;
 using UnityEngine;
 using Showroom.Navigation;
 using Showroom.Interaction;
+using Showroom.Utility;
 using UnityEngine.Serialization;
 
 namespace Showroom {
@@ -13,9 +14,10 @@ namespace Showroom {
         [FormerlySerializedAs("_focusControl")] [SerializeField] private FocusNavigation _focusNavigation;
         private PreviewNavigation _activeNavigation;
         private InteractionHandler _interactionHandler;
+        private bool _waiting;
 
         public bool Locked {
-            get { return _activeNavigation.Locked; }
+            get { return _waiting || _activeNavigation.Locked; }
         }
 
         private void Start() {
@@ -25,29 +27,40 @@ namespace Showroom {
         }
 
         public void MoveTo(Vector3 position) {
-            _focusNavigation.enabled = false;
-            _freeNavigation.enabled = true;
-            _activeNavigation = _freeNavigation;
-            _freeNavigation.MoveTo(position);
+            _waiting = true;
+            CustomCoroutine.WaitThenExecute(0.3f, () => {
+                _focusNavigation.enabled = false;
+                _freeNavigation.enabled = true;
+                _activeNavigation = _freeNavigation;
+                _freeNavigation.MoveTo(position);
+                _waiting = false;
+            });
         }
 
         public void FocusOn(InteractableObject target) {
-            _focusNavigation.enabled = true;
-            _freeNavigation.enabled = false;
-            _activeNavigation = _focusNavigation;
-            _focusNavigation.FocusOn(target);
+            _waiting = true;
+            CustomCoroutine.WaitThenExecute(0.3f, () => {
+                _focusNavigation.enabled = true;
+                _freeNavigation.enabled = false;
+                _activeNavigation = _focusNavigation;
+                _focusNavigation.FocusOn(target);
+                _waiting = false;
+            });
         }
         
         private void Update() {
-            if (Locked) {
+            if (!Locked) {
+                _interactionHandler.Update();
+            }
+            else {
                 _interactionHandler.PreventInteraction();
             }
-
-            _interactionHandler.Update();
         }
 
         private void FixedUpdate() {
-            _interactionHandler.FixedUpdate();
+            if (!Locked) {
+                _interactionHandler.FixedUpdate();
+            }
         }
     }
 }

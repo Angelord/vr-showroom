@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Showroom;
+using Showroom.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -13,6 +14,7 @@ namespace Showroom.Interaction {
         [SerializeField] private FloorPointer _pointer;
 
         public override void OnPreviewClick(InteractionEvent ev) {
+            _pointer.Click();
             _preview.MoveTo(ev.Point);
         }
 
@@ -25,7 +27,7 @@ namespace Showroom.Interaction {
         }
 
         public override void OnPreviewFocusLost(InteractionEvent ev) {
-            _pointer.Disable();
+//            _pointer.Disable();
         }
     }
 }
