@@ -12,7 +12,6 @@ namespace Showroom {
         public Transform InitialTransform => _initialTransform;
         
         public void OnPointerClick(PointerEventData eventData) {
-            Debug.Log("Click time : " + eventData.clickTime);
             _preview.FocusOn(this);
         }
     }

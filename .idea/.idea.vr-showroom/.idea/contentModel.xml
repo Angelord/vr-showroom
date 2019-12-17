@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Projects\Work\vr-showroom" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="3rdParty" t="Include">
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="ClickableFloor.cs" t="Include" />
+          <e p="Control" t="Include">
+            <e p="FocusControl.cs" t="Include" />
+            <e p="FreeControl.cs" t="Include" />
+          </e>
+          <e p="FocusObject.cs" t="Include" />
+          <e p="Preview.cs" t="Include" />
+          <e p="PreviewControl.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="vr-showroom.sln" t="IncludeFlat" />
+    </e>
+    <e p="C:\Users\Angel\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Angel\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_vr-showroom.1500579202.00" t="ExcludeRecursive" />
+  </component>
+</project>
