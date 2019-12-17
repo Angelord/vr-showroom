@@ -1,21 +1,25 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Showroom.Control {
-    public class FreeControl : PreviewControl {
+namespace Showroom.Navigation {
+    public class FreeNavigation : PreviewNavigation {
         
         [SerializeField] private float _yOffset = 1.6f;
         [SerializeField] private float _rotateSensitivity = 2.0f;
         private bool _rotating;
+        private bool _moving;
 
-        public override bool Locked => _rotating;
+        public override bool Locked => _rotating || _moving;
 
         public void MoveTo(Vector3 position) {
                         
             Vector3 offsetPos = position;
             offsetPos.y = _yOffset;
+
+            _moving = true;
             
-            transform.DOMove(offsetPos, 1.0f);
+            var tween = transform.DOMove(offsetPos, 1.0f);
+            tween.onComplete += () => { _moving = false; };
         }
 
         private void Update() {
@@ -31,6 +35,9 @@ namespace Showroom.Control {
                 transform.rotation = Quaternion.Euler(rotation);
             
                 _rotating = offset.sqrMagnitude > 0.1f;
+            }
+            else {
+                _rotating = false;
             }
         }
     }

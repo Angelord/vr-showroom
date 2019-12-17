@@ -2,16 +2,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Showroom {
-    
-    public class FocusObject : MonoBehaviour, IPointerClickHandler {
+namespace Showroom.Interaction {
+    public class InteractableObject : Interactable {
 
         [SerializeField] private Transform _initialTransform;
         [SerializeField] private Preview _preview;
         
         public Transform InitialTransform => _initialTransform;
         
-        public void OnPointerClick(PointerEventData eventData) {
+        public override void OnPreviewClick(InteractionEvent ev) {
             _preview.FocusOn(this);
         }
     }

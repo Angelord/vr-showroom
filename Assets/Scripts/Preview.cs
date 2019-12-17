@@ -1,36 +1,53 @@
 ﻿using System;
+using DG.Tweening.Plugins;
 using UnityEngine;
-using Showroom.Control;
+using Showroom.Navigation;
+using Showroom.Interaction;
+using UnityEngine.Serialization;
 
 namespace Showroom {
 
     public class Preview : MonoBehaviour {
 
-        [SerializeField] private FreeControl _freeControl;
-        [SerializeField] private FocusControl _focusControl;
-        private PreviewControl _activeControl;
+        [FormerlySerializedAs("_freeControl")] [SerializeField] private FreeNavigation _freeNavigation;
+        [FormerlySerializedAs("_focusControl")] [SerializeField] private FocusNavigation _focusNavigation;
+        private PreviewNavigation _activeNavigation;
+        private InteractionHandler _interactionHandler;
 
         public bool Locked {
-            get { return _activeControl.Locked; }
+            get { return _activeNavigation.Locked; }
         }
 
         private void Start() {
-            _activeControl = _freeControl;
-            _focusControl.enabled = false;
+            _interactionHandler = new InteractionHandler(GetComponent<Camera>());
+            _activeNavigation = _freeNavigation;
+            _focusNavigation.enabled = false;
         }
 
         public void MoveTo(Vector3 position) {
-            _focusControl.enabled = false;
-            _freeControl.enabled = true;
-            _activeControl = _freeControl;
-            _freeControl.MoveTo(position);
+            _focusNavigation.enabled = false;
+            _freeNavigation.enabled = true;
+            _activeNavigation = _freeNavigation;
+            _freeNavigation.MoveTo(position);
         }
 
-        public void FocusOn(FocusObject target) {
-            _focusControl.enabled = true;
-            _freeControl.enabled = false;
-            _activeControl = _focusControl;
-            _focusControl.FocusOn(target);
+        public void FocusOn(InteractableObject target) {
+            _focusNavigation.enabled = true;
+            _freeNavigation.enabled = false;
+            _activeNavigation = _focusNavigation;
+            _focusNavigation.FocusOn(target);
+        }
+        
+        private void Update() {
+            if (Locked) {
+                _interactionHandler.PreventClick();
+            }
+
+            _interactionHandler.Update();
+        }
+
+        private void FixedUpdate() {
+            _interactionHandler.FixedUpdate();
         }
     }
 }

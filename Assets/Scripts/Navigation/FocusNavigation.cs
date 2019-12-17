@@ -1,13 +1,12 @@
-﻿using System;
-using DG.Tweening;
-using UnityEditor.Media;
+﻿using DG.Tweening;
 using UnityEngine;
+using Showroom.Interaction;
 
-namespace Showroom.Control {
-    public class FocusControl : PreviewControl {
+namespace Showroom.Navigation {
+    public class FocusNavigation : PreviewNavigation {
 
         [SerializeField] private float _rotateSensitivity = 2.0f;
-        private FocusObject _target;
+        private InteractableObject _target;
         private Transform _focusPoint;
         private bool _rotating;
         
@@ -22,17 +21,18 @@ namespace Showroom.Control {
             _target = null;
         }
 
-        public void FocusOn(FocusObject target) {
+        public void FocusOn(InteractableObject target) {
             if (_target == target) {
                 return;
             }
 
             _target = target;
             
+            transform.SetParent(null);
             _focusPoint.position = _target.transform.position;
             transform.SetParent(_focusPoint);
             
-            var tween = transform.DOMove(_target.InitialTransform.position, 1.0f);
+            var tween = transform.DOMove(_target.InitialTransform.position, 1.5f);
             tween.onUpdate += () => {
                 Vector3 lookVector = _target.transform.position - transform.position;
                 Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);

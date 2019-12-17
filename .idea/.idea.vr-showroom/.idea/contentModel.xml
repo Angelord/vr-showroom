@@ -19,14 +19,19 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="ClickableFloor.cs" t="Include" />
-          <e p="Control" t="Include">
-            <e p="FocusControl.cs" t="Include" />
-            <e p="FreeControl.cs" t="Include" />
+          <e p="Interaction" t="Include">
+            <e p="Interactable.cs" t="Include" />
+            <e p="InteractableFloor.cs" t="Include" />
+            <e p="InteractableObject.cs" t="Include" />
+            <e p="InteractionEvent.cs" t="Include" />
           </e>
-          <e p="FocusObject.cs" t="Include" />
+          <e p="InteractionHandler.cs" t="Include" />
+          <e p="Navigation" t="Include">
+            <e p="FocusNavigation.cs" t="Include" />
+            <e p="FreeNavigation.cs" t="Include" />
+            <e p="PreviewNavigation.cs" t="Include" />
+          </e>
           <e p="Preview.cs" t="Include" />
-          <e p="PreviewControl.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

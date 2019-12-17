@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Showroom {
-    public abstract class PreviewControl : MonoBehaviour {
+namespace Showroom.Navigation {
+    public abstract class PreviewNavigation : MonoBehaviour {
 
         public abstract bool Locked { get; }
-        
     }
 }
