@@ -17,7 +17,7 @@ namespace Showroom.Navigation {
         private bool _focusing;
         private bool _rotating;
         
-        public override bool Locked => _rotating;
+        public override bool Locked => _rotating || _focusing;
 
         private void Awake() {
             _focusPoint = (new GameObject()).GetComponent<Transform>();
