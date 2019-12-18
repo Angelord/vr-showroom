@@ -23,7 +23,7 @@ namespace Showroom {
         }
 
         private void Start() {
-            _interactionHandler = new InteractionHandler(GetComponent<Camera>());
+            _interactionHandler = new InteractionHandler(GetComponentInChildren<Camera>());
             _activeNavigation = _freeNavigation;
             _focusNavigation.enabled = false;
         }
