@@ -1,9 +1,9 @@
 ﻿
 Fix null ref in tween (When switching before transition is over?)
 
-Fix Zoom
-
 Add object customization options
+
+Limit rotation when focusing
 
 Inertia when rotating
 

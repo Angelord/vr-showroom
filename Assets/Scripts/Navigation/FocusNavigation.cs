@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 namespace Showroom.Navigation {
     public class FocusNavigation : PreviewNavigation {
 
+        private const float MinRotationZ = 76.0f;
+        private const float MaxRotationZ = 156.0f;
+
         [SerializeField] private float _rotateSensitivity = 2.0f;
         [SerializeField] private float _maxZoom = 1.5f;
         [SerializeField] private float _zoomSpeed = 2.0f;
@@ -83,12 +86,15 @@ namespace Showroom.Navigation {
             if (Input.GetMouseButton(0)) {
                 Vector3 offset = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
                 offset *= _rotateSensitivity;
-
+                
                 _focusPoint.Rotate(Vector3.up, offset.x, Space.World);
 
-                Vector3 lookDir = _focusPoint.position - transform.position;
-                Vector3 camRight = Vector3.Cross(lookDir, Vector3.up);
-                _focusPoint.Rotate(camRight, offset.y, Space.World);
+                float camAngle = Vector3.Angle(_camera.transform.forward, Vector3.up);
+                if ((offset.y > 0.0f && camAngle > MinRotationZ) || (offset.y < 0.0f && camAngle < MaxRotationZ)) {
+                    Vector3 lookDir = _focusPoint.position - transform.position;
+                    Vector3 camRight = Vector3.Cross(lookDir, Vector3.up);
+                    _focusPoint.Rotate(camRight, offset.y, Space.World);
+                }
 
                 if (offset.sqrMagnitude > 0.1f) {
                     _rotating = true;
