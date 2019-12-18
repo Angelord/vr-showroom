@@ -1,7 +1,13 @@
 ﻿
 Fix null ref in tween (When switching before transition is over?)
 
+Fix Zoom
+
 Add object customization options
+
+Inertia when rotating
+
+Default rotation
 
 Add drag hint cursor
 

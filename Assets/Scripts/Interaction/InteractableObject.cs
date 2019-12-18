@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,10 +7,12 @@ namespace Showroom.Interaction {
     public class InteractableObject : Interactable {
 
         [SerializeField] private Transform _initialTransform;
+        [SerializeField] private Transform _focusCenter;
         [SerializeField] private Preview _preview;
         [SerializeField] private ObjectInformation _information;
         
-        public Transform InitialTransform => _initialTransform;
+        public Vector3 InitialPosition => _initialTransform.position;
+        public Vector3 FocusCenter => _focusCenter.position;
 
         public ObjectInformation Information => _information;
 

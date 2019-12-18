@@ -44,19 +44,19 @@ namespace Showroom.Navigation {
             _target = target;
             
             transform.SetParent(null);
-            _focusPoint.position = _target.transform.position;
+            _focusPoint.position = _target.FocusCenter;
             transform.SetParent(_focusPoint);
             _focusing = true;
             
-            var tween = transform.DOMove(_target.InitialTransform.position, 1.5f);
+            var tween = transform.DOMove(_target.InitialPosition, 1.5f);
             tween.onUpdate += () => {
-                Vector3 lookVector = _target.transform.position - transform.position;
+                Vector3 lookVector = _target.FocusCenter - transform.position;
                 Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.5f);
             };
 
             tween.onComplete += () => {
-                transform.LookAt(target.transform.position);
+                transform.LookAt(target.FocusCenter);
                 _focusing = false;
             };
         }
