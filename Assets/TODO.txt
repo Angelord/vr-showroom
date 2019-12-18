@@ -1,0 +1,8 @@
+﻿
+Fix null ref in tween (When switching before transition is over?)
+
+Add object customization options
+
+Add drag hint cursor
+
+Add material transition animation
