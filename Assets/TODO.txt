@@ -3,8 +3,6 @@ Fix null ref in tween (When switching before transition is over?)
 
 Add object customization options
 
-Limit rotation when focusing
-
 Inertia when rotating
 
 Default rotation
