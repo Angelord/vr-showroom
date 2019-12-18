@@ -1,11 +1,17 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using Showroom.Interaction;
+using UnityEngine.Serialization;
 
 namespace Showroom.Navigation {
     public class FocusNavigation : PreviewNavigation {
 
         [SerializeField] private float _rotateSensitivity = 2.0f;
+        [SerializeField] private float _minFOV = 45.0f;
+        [SerializeField] private float _maxFOV = 70.0f;
+        [SerializeField] private float _zoomSpeed = 2.0f;
+        private Camera _camera;
+        private float _defaultFOV;
         private InteractableObject _target;
         private Transform _focusPoint;
         private bool _focusing;
@@ -17,9 +23,17 @@ namespace Showroom.Navigation {
             _focusPoint = (new GameObject()).GetComponent<Transform>();
         }
 
+        private void Start() {
+            _camera = GetComponent<Camera>();
+            _defaultFOV = _camera.fieldOfView;
+        }
+
         private void OnDisable() {
             transform.SetParent(null);
             _target = null;
+            if (_camera != null) {
+                _camera.fieldOfView = _defaultFOV;
+            }
         }
 
         public void FocusOn(InteractableObject target) {
@@ -49,7 +63,18 @@ namespace Showroom.Navigation {
 
         private void Update() {
 
-            if(!_focusing && Input.GetMouseButton(0)) {
+            if (_focusing) {
+                _rotating = false;
+                return;;
+            }
+
+            float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
+            if (Mathf.Abs(mouseWheel) > 0.01f) {
+                _camera.fieldOfView -= mouseWheel * _zoomSpeed * Time.deltaTime;
+                _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _minFOV, _maxFOV);
+            }
+
+            if (Input.GetMouseButton(0)) {
                 Vector3 offset = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
                 offset *= _rotateSensitivity;
 

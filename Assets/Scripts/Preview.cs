@@ -3,6 +3,7 @@ using DG.Tweening.Plugins;
 using UnityEngine;
 using Showroom.Navigation;
 using Showroom.Interaction;
+using Showroom.UserInterface;
 using Showroom.Utility;
 using UnityEngine.Serialization;
 
@@ -10,8 +11,9 @@ namespace Showroom {
 
     public class Preview : MonoBehaviour {
 
-        [FormerlySerializedAs("_freeControl")] [SerializeField] private FreeNavigation _freeNavigation;
-        [FormerlySerializedAs("_focusControl")] [SerializeField] private FocusNavigation _focusNavigation;
+        [SerializeField] private FreeNavigation _freeNavigation;
+        [SerializeField] private FocusNavigation _focusNavigation;
+        [SerializeField] private ObjectInformationGUI _infoGui;
         private PreviewNavigation _activeNavigation;
         private InteractionHandler _interactionHandler;
         private bool _waiting;
@@ -33,6 +35,7 @@ namespace Showroom {
                 _freeNavigation.enabled = true;
                 _activeNavigation = _freeNavigation;
                 _freeNavigation.MoveTo(position);
+                _infoGui.Hide();
                 _waiting = false;
             });
         }
@@ -44,6 +47,7 @@ namespace Showroom {
                 _freeNavigation.enabled = false;
                 _activeNavigation = _focusNavigation;
                 _focusNavigation.FocusOn(target);
+                _infoGui.Show(target.Information);
                 _waiting = false;
             });
         }
