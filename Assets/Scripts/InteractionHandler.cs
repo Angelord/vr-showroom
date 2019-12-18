@@ -15,8 +15,8 @@ namespace Showroom {
 		public void PreventInteraction() {
 			_clickCanceled = true;
 		
-			_targetInteractable?.OnPreviewFocusLost(new InteractionEvent());
-			_targetInteractable = null;
+//			_targetInteractable?.OnPreviewFocusLost(new InteractionEvent());
+//			_targetInteractable = null;
 		}
 
 		public void Update() {

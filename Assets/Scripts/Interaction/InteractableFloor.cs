@@ -27,7 +27,7 @@ namespace Showroom.Interaction {
         }
 
         public override void OnPreviewFocusLost(InteractionEvent ev) {
-//            _pointer.Disable();
+            _pointer.Disable();
         }
     }
 }
