@@ -14,6 +14,7 @@ namespace Showroom.Interaction {
         [SerializeField] private ObjectInformation _information;
         [SerializeField] private MaterialPropertyBool _outlineEnabledProp;
         [SerializeField] private List<CustomizationOption> _customizationOptions;
+        [SerializeField] private int _defaultOption;
         private MeshRenderer _renderer;
         
         public Vector3 InitialPosition => _initialTransform.position;
@@ -28,10 +29,12 @@ namespace Showroom.Interaction {
             foreach (CustomizationOption customizationOption in _customizationOptions) {
                 customizationOption.OnSelect += OnSelectOption;
             }
+            _customizationOptions[_defaultOption].Select();
         }
 
         private void OnSelectOption(CustomizationOption option) {
             _renderer.materials = option.Materials;
+            _information.Material = option.Name;
         }
 
         public override void OnPreviewClick(InteractionEvent ev) {

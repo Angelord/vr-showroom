@@ -1,7 +1,7 @@
 ﻿
 Customization
-    Change material text in GUI
-    Add material transition animation
+    Add GUI material transition animation
+    Add material blending on change 
 
 Interaction 
     Inertia when rotating
