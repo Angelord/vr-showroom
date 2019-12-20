@@ -1,12 +1,16 @@
 ﻿
-Fix null ref in tween (When switching before transition is over?)
+Errors
+    Fix null ref in tween (When switching before transition is over?)
 
-Add object customization options
+Customization
+    Fix raycasting through GUI
+    Change material text in GUI
+    Add material transition animation
 
-Inertia when rotating
+Interaction 
+    Inertia when rotating
+    Default orbiting rotation
 
-Default rotation
+GUI
+    Add drag hint cursor
 
-Add drag hint cursor
-
-Add material transition animation

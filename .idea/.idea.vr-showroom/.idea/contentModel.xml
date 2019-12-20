@@ -53,7 +53,6 @@
         <e p="Scripts" t="Include">
           <e p="Customization" t="Include">
             <e p="CustomizationOption.cs" t="Include" />
-            <e p="MaterialSet.cs" t="Include" />
           </e>
           <e p="Interaction" t="Include">
             <e p="FloorPointer.cs" t="Include" />
@@ -77,6 +76,8 @@
           </e>
           <e p="Preview.cs" t="Include" />
           <e p="UserInterface" t="Include">
+            <e p="CustomizationGUI.cs" t="Include" />
+            <e p="CustomizationOptionGUI.cs" t="Include" />
             <e p="ObjectInformationGUI.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">

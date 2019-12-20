@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bbf52dcaeebf64eaa5ef826ee3a5a4, type: 3}
+  m_Name: CO_Wheat
+  m_EditorClassIdentifier: 
+  _name: Wheat Fabric
+  _preview: {fileID: 21300000, guid: 2298038afa36ce14893999912b5330e4, type: 3}
+  _materials:
+  - {fileID: 2100000, guid: 236e6d579c71a784f92d3d63ff16fb22, type: 2}
+  - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}

@@ -14,6 +14,7 @@ namespace Showroom {
         [SerializeField] private FreeNavigation _freeNavigation;
         [SerializeField] private FocusNavigation _focusNavigation;
         [SerializeField] private ObjectInformationGUI _infoGui;
+        [SerializeField] private CustomizationGUI _customizationGui;
         private PreviewNavigation _activeNavigation;
         private InteractionHandler _interactionHandler;
         private bool _waiting;
@@ -30,6 +31,7 @@ namespace Showroom {
 
         public void MoveTo(Vector3 position) {
             _waiting = true;
+            _customizationGui.Hide();
             CustomCoroutine.WaitThenExecute(0.3f, () => {
                 _focusNavigation.enabled = false;
                 _freeNavigation.enabled = true;
@@ -42,12 +44,14 @@ namespace Showroom {
 
         public void FocusOn(InteractableObject target) {
             _waiting = true;
+            _customizationGui.Hide();
             CustomCoroutine.WaitThenExecute(0.3f, () => {
                 _focusNavigation.enabled = true;
                 _freeNavigation.enabled = false;
                 _activeNavigation = _focusNavigation;
                 _focusNavigation.FocusOn(target);
                 _infoGui.Show(target.Information);
+                _customizationGui.Show(target.CustomizationOptions);
                 _waiting = false;
             });
         }
