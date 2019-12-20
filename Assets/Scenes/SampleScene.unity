@@ -501,6 +501,22 @@ MonoBehaviour:
     _name: Chair
     _dimensions: 100 x 94 x 97 cm
     _material: Black Leather
+  _outlineEnabledProp: {fileID: 11400000, guid: 1017f189d9b69074788838d8fcb90f74,
+    type: 2}
+--- !u!114 &277624853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277624850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01a8c2675b16a9449e0f90891aa0938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialProperties:
+  - {fileID: 11400000, guid: 1017f189d9b69074788838d8fcb90f74, type: 2}
 --- !u!1 &363620170
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +807,22 @@ MonoBehaviour:
     _name: Chair
     _dimensions: 100 x 94 x 97 cm
     _material: Black Leather
+  _outlineEnabledProp: {fileID: 11400000, guid: 0cdf8d09b66bdaa4392443af6303c1ed,
+    type: 2}
+--- !u!114 &629342564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629342561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01a8c2675b16a9449e0f90891aa0938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialProperties:
+  - {fileID: 11400000, guid: 0cdf8d09b66bdaa4392443af6303c1ed, type: 2}
 --- !u!1 &644651761
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +1002,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.64e-43, y: 0, z: 0, w: -5.8390036e+9}
+  m_BoundingSphereOverride: {x: 2.6453448e+20, y: 1.125868e+24, z: 7.131488e+28, w: 9.596064e+11}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2276,6 +2308,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 5aaabef3ff7dfaf41bfa49be241572bc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 275f04963d6ea0947b869000c25c8351, type: 2}
     - target: {fileID: -927199367670048503, guid: 5aaabef3ff7dfaf41bfa49be241572bc,
         type: 3}
       propertyPath: m_Name
@@ -2314,6 +2351,22 @@ MonoBehaviour:
     _name: Armchair
     _dimensions: 100 x 94 x 97 cm
     _material: Red Leather
+  _outlineEnabledProp: {fileID: 11400000, guid: c6b4e62f0e1df3146866fd7b436920e8,
+    type: 2}
+--- !u!114 &1976556226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976556224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01a8c2675b16a9449e0f90891aa0938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialProperties:
+  - {fileID: 11400000, guid: c6b4e62f0e1df3146866fd7b436920e8, type: 2}
 --- !u!1 &2009776038
 GameObject:
   m_ObjectHideFlags: 0

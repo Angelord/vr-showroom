@@ -17,6 +17,31 @@
             </e>
             <e p="readme.txt" t="Include" />
           </e>
+          <e p="Fullscreen" t="Include">
+            <e p="Editor" t="Include">
+              <e p="After.cs" t="Include" />
+              <e p="Disposables.cs" t="Include" />
+              <e p="Fullscreen.cs" t="Include" />
+              <e p="FullscreenContainer.cs" t="Include" />
+              <e p="FullscreenContainerInternal.cs" t="Include" />
+              <e p="FullscreenOnPlay.cs" t="Include" />
+              <e p="FullscreenPreferences.cs" t="Include" />
+              <e p="FullscreenRects.cs" t="Include" />
+              <e p="FullscreenUtility.cs" t="Include" />
+              <e p="FullscreenView.cs" t="Include" />
+              <e p="FullscreenWindow.cs" t="Include" />
+              <e p="Integration.cs" t="Include" />
+              <e p="InternalTypes.cs" t="Include" />
+              <e p="Logger.cs" t="Include" />
+              <e p="MenuItems.cs" t="Include" />
+              <e p="PlaceholderWindow.cs" t="Include" />
+              <e p="PrefItem.cs" t="Include" />
+              <e p="ReflectionUtility.cs" t="Include" />
+              <e p="Shortcut.cs" t="Include" />
+              <e p="ViewPyramid.cs" t="Include" />
+            </e>
+            <e p="FullscreenEditor.asmdef" t="Include" />
+          </e>
         </e>
         <e p="Art" t="Include">
           <e p="Fonts" t="Include">
@@ -25,34 +50,10 @@
             </e>
           </e>
         </e>
-        <e p="Fullscreen" t="Include">
-          <e p="Editor" t="Include">
-            <e p="After.cs" t="Include" />
-            <e p="Disposables.cs" t="Include" />
-            <e p="Fullscreen.cs" t="Include" />
-            <e p="FullscreenContainer.cs" t="Include" />
-            <e p="FullscreenContainerInternal.cs" t="Include" />
-            <e p="FullscreenOnPlay.cs" t="Include" />
-            <e p="FullscreenPreferences.cs" t="Include" />
-            <e p="FullscreenRects.cs" t="Include" />
-            <e p="FullscreenUtility.cs" t="Include" />
-            <e p="FullscreenView.cs" t="Include" />
-            <e p="FullscreenWindow.cs" t="Include" />
-            <e p="Integration.cs" t="Include" />
-            <e p="InternalTypes.cs" t="Include" />
-            <e p="Logger.cs" t="Include" />
-            <e p="MenuItems.cs" t="Include" />
-            <e p="PlaceholderWindow.cs" t="Include" />
-            <e p="PrefItem.cs" t="Include" />
-            <e p="ReflectionUtility.cs" t="Include" />
-            <e p="Shortcut.cs" t="Include" />
-            <e p="ViewPyramid.cs" t="Include" />
-          </e>
-          <e p="FullscreenEditor.asmdef" t="Include" />
-        </e>
         <e p="Scripts" t="Include">
           <e p="Customization" t="Include">
             <e p="CustomizationOption.cs" t="Include" />
+            <e p="MaterialSet.cs" t="Include" />
           </e>
           <e p="Interaction" t="Include">
             <e p="FloorPointer.cs" t="Include" />
@@ -63,6 +64,12 @@
             <e p="ObjectInformation.cs" t="Include" />
           </e>
           <e p="InteractionHandler.cs" t="Include" />
+          <e p="Materials" t="Include">
+            <e p="MaterialProperty.cs" t="Include" />
+            <e p="MaterialPropertyBool.cs" t="Include" />
+            <e p="MaterialPropertyFloat.cs" t="Include" />
+            <e p="PerRendererMaterialOptions.cs" t="Include" />
+          </e>
           <e p="Navigation" t="Include">
             <e p="FocusNavigation.cs" t="Include" />
             <e p="FreeNavigation.cs" t="Include" />
@@ -75,6 +82,9 @@
           <e p="Utility" t="Include">
             <e p="CustomCoroutine.cs" t="Include" />
           </e>
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Outline.shader" t="Include" />
         </e>
         <e p="TODO.txt" t="Include" />
       </e>
