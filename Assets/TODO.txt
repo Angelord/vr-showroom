@@ -1,9 +1,5 @@
 ﻿
-Errors
-    Fix null ref in tween (When switching before transition is over?)
-
 Customization
-    Pop in animation for Customization Options
     Change material text in GUI
     Add material transition animation
 

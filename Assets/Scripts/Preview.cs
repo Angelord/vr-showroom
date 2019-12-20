@@ -38,9 +38,7 @@ namespace Showroom {
             _waiting = true;
             _customizationGui.Hide();
             CustomCoroutine.WaitThenExecute(0.3f, () => {
-                _focusNavigation.enabled = false;
-                _freeNavigation.enabled = true;
-                _activeNavigation = _freeNavigation;
+                ChangeNavigation(_freeNavigation);
                 _freeNavigation.MoveTo(position);
                 _infoGui.Hide();
                 _waiting = false;
@@ -51,16 +49,24 @@ namespace Showroom {
             _waiting = true;
             _customizationGui.Hide();
             CustomCoroutine.WaitThenExecute(0.3f, () => {
-                _focusNavigation.enabled = true;
-                _freeNavigation.enabled = false;
-                _activeNavigation = _focusNavigation;
+                ChangeNavigation(_focusNavigation);
                 _focusNavigation.FocusOn(target);
                 _infoGui.Show(target.Information);
                 _customizationGui.Show(target.CustomizationOptions);
                 _waiting = false;
             });
         }
-        
+
+        private void ChangeNavigation(PreviewNavigation newNavigation) {
+            if (newNavigation == _activeNavigation) { return; }
+            
+            _activeNavigation.enabled = false;
+            _activeNavigation.OnExit();
+            newNavigation.enabled = true;
+            newNavigation.OnEnter();
+            _activeNavigation = newNavigation;
+        }
+
         private void Update() {
             if (Locked) {
                 _interactionHandler.PreventClick();

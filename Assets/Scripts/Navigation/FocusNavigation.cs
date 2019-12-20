@@ -28,9 +28,10 @@ namespace Showroom.Navigation {
             _camera = GetComponentInChildren<Camera>();
         }
 
-        private void OnDisable() {
+        public override void OnExit() {
             transform.SetParent(null);
             _target = null;
+
             if (_camera != null) {
                 // Restore default zoom
                 _camera.transform.DOLocalMove(Vector3.zero, 0.5f);
