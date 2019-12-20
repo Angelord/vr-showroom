@@ -8,7 +8,7 @@ namespace Showroom.UserInterface {
 	[RequireComponent(typeof(Animator))]
 	public class ObjectInformationGUI : MonoBehaviour {
 
-		private static readonly int AnimPropHidden = Animator.StringToHash("Hidden");
+		private static readonly int AnimHidden = Animator.StringToHash("Hidden");
 		
 		[SerializeField] private Text _nameText;
 		[SerializeField] private Text _dimensionsText;
@@ -26,14 +26,14 @@ namespace Showroom.UserInterface {
 		public void Show(ObjectInformation information) {
 			if (_current != null) {
 				_current.OnMaterialChange -= OnMaterialChange;
-				_animator.SetBool(AnimPropHidden, true);
+				_animator.SetBool(AnimHidden, true);
 			}
 
 			_current = information;
 			_current.OnMaterialChange += OnMaterialChange;
 
 			CustomCoroutine.WaitOneFrameThenExecute(() => {
-				_animator.SetBool(AnimPropHidden, false);
+				_animator.SetBool(AnimHidden, false);
 			});
 		}
 
@@ -43,7 +43,7 @@ namespace Showroom.UserInterface {
 				_current = null;
 			}
 			
-			_animator.SetBool(AnimPropHidden, true);
+			_animator.SetBool(AnimHidden, true);
 		}
 
 		public void OnShowAnimationStarted() {

@@ -172,6 +172,7 @@ MonoBehaviour:
   _layoutGroup: {fileID: 7167250}
   _optionPrefab: {fileID: 476211959707536110, guid: 49a2f26de6df0de419bbf2f355002e82,
     type: 3}
+  _showDelayPerOption: 0.2
 --- !u!114 &7167252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 120
+  m_Spacing: 65
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0

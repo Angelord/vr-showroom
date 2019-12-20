@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace Showroom.UserInterface {
     public class CustomizationGUI : MonoBehaviour {
-
+        
         [SerializeField] private Transform _layoutGroup;
         [SerializeField] private GameObject _optionPrefab;
+        [SerializeField] private float _showDelayPerOption = 0.2f;
         private List<CustomizationOptionGUI> _optionGuis = new List<CustomizationOptionGUI>();
         
         public void Show(IReadOnlyList<CustomizationOption> customizationOptions) {
@@ -18,7 +19,7 @@ namespace Showroom.UserInterface {
             }
 
             for (int i = 0; i < customizationOptions.Count; i++) {
-                _optionGuis[i].Show(customizationOptions[i]);
+                _optionGuis[i].Show(customizationOptions[i], i * _showDelayPerOption);
             }
         }
         
@@ -29,8 +30,7 @@ namespace Showroom.UserInterface {
         }
 
         private void CreateOptionGui() {
-            CustomizationOptionGUI newOptionGui =
-                Instantiate(_optionPrefab, _layoutGroup).GetComponent<CustomizationOptionGUI>();
+            CustomizationOptionGUI newOptionGui = Instantiate(_optionPrefab, _layoutGroup).GetComponent<CustomizationOptionGUI>();
 
             _optionGuis.Add(newOptionGui);
         }
