@@ -1,61 +1,70 @@
 ﻿using Showroom.Interaction;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using Debug = System.Diagnostics.Debug;
 
 namespace Showroom {
 	public class InteractionHandler {
 
 		private Camera _camera;
-		private Interactable _targetInteractable;
-		private bool _clickCanceled;
+		private Interactable _focusedInteractable;
+		private bool _clickInitiated = false;
 		
 		public InteractionHandler(Camera camera) {
 			this._camera = camera;
 		}
 
-		public void PreventInteraction() {
-			_clickCanceled = true;
-		
-//			_targetInteractable?.OnPreviewFocusLost(new InteractionEvent());
-//			_targetInteractable = null;
+		public void PreventClick() {
+			_clickInitiated = false;
 		}
 
-		public void Update() {
-			if (Input.GetMouseButtonDown(0)) {
-				_clickCanceled = false;
+		public void OnPointerEnter(Interactable obj, PointerEventData eventData) {
+			if (_focusedInteractable != null) {
+				_focusedInteractable.OnPreviewFocusLost(new InteractionEvent());
 			}
 
-			if (Input.GetMouseButtonUp(0) && !_clickCanceled) {
-				InteractionEvent ev;
-				_targetInteractable = RaycastInteractable(out ev);
-				_targetInteractable?.OnPreviewClick(ev);
+			_focusedInteractable = obj;
+			_focusedInteractable.OnPreviewFocusGained(GenerateInteraction());
+			_clickInitiated = false;
+		}
+
+		public void OnPointerExit(Interactable obj, PointerEventData eventData) {
+			if (_focusedInteractable != null) {
+				_focusedInteractable.OnPreviewFocusLost(new InteractionEvent());
+			}
+
+			_focusedInteractable = null;
+			_clickInitiated = false;
+		}
+
+		public void OnPointerDown(Interactable obj, PointerEventData eventData) {
+			_clickInitiated = true;
+		}
+
+		public void OnPointerUp(Interactable obj, PointerEventData eventData) {
+			if (_clickInitiated) {
+				_focusedInteractable.OnPreviewClick(GenerateInteraction());
 			}
 		}
 
 		public void FixedUpdate() {
-			InteractionEvent ev;
-			Interactable newTarget = RaycastInteractable(out ev);
-            
-			if (newTarget != _targetInteractable) {
-				_targetInteractable?.OnPreviewFocusLost(ev);
-				_targetInteractable = newTarget;
-				_targetInteractable?.OnPreviewFocusGained(ev);
-			}
-			else {
-				_targetInteractable?.OnPreviewFocus(ev);
-			}
+			if (_focusedInteractable == null) { return; }
+			
+			InteractionEvent ev = GenerateInteraction();
+			_focusedInteractable.OnPreviewFocus(ev);
 		}
 		
-		private Interactable RaycastInteractable(out InteractionEvent ev) {
+		private InteractionEvent GenerateInteraction() {
+			InteractionEvent ev = new InteractionEvent();
+            
 			Ray ray = _camera.ScreenPointToRay(Input.mousePosition - new Vector3(0.0f, 12.0f));
 			RaycastHit hit;
-			ev = new InteractionEvent();
-            
 			if (Physics.Raycast(ray, out hit, 200.0f)) {
+				// TODO : verify we are hitting an interactable
 				ev.Point = hit.point;
-				return hit.collider.GetComponentInChildren<Interactable>();
 			}
-            
-			return null;
+
+			return ev;
 		}
 	}
 }

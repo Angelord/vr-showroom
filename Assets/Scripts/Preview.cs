@@ -23,8 +23,13 @@ namespace Showroom {
             get { return _waiting || _activeNavigation.Locked; }
         }
 
-        private void Start() {
+        public InteractionHandler InteractionHandler { get => _interactionHandler; }
+
+        private void Awake() {
             _interactionHandler = new InteractionHandler(GetComponentInChildren<Camera>());
+        }
+
+        private void Start() {
             _activeNavigation = _freeNavigation;
             _focusNavigation.enabled = false;
         }
@@ -57,11 +62,8 @@ namespace Showroom {
         }
         
         private void Update() {
-            if (!Locked) {
-                _interactionHandler.Update();
-            }
-            else {
-                _interactionHandler.PreventInteraction();
+            if (Locked) {
+                _interactionHandler.PreventClick();
             }
         }
 

@@ -11,7 +11,6 @@ namespace Showroom.Interaction {
 
         [SerializeField] private Transform _initialTransform;
         [SerializeField] private Transform _focusCenter;
-        [SerializeField] private Preview _preview;
         [SerializeField] private ObjectInformation _information;
         [SerializeField] private MaterialPropertyBool _outlineEnabledProp;
         [SerializeField] private List<CustomizationOption> _customizationOptions;
@@ -36,7 +35,7 @@ namespace Showroom.Interaction {
         }
 
         public override void OnPreviewClick(InteractionEvent ev) {
-            _preview.FocusOn(this);
+            Preview.FocusOn(this);
         }
 
         public override void OnPreviewFocusGained(InteractionEvent ev) {
