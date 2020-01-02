@@ -7,6 +7,7 @@ namespace Showroom {
 	public class InteractionHandler {
 
 		private Camera _camera;
+		private Interactable _selectedInteractable;
 		private Interactable _focusedInteractable;
 		private bool _clickInitiated = false;
 		
@@ -43,7 +44,10 @@ namespace Showroom {
 
 		public void OnPointerUp(Interactable obj, PointerEventData eventData) {
 			if (_clickInitiated) {
-				_focusedInteractable.OnPreviewSelected(GenerateInteraction());
+				_selectedInteractable?.Deselect();
+
+				_selectedInteractable = _focusedInteractable;
+				_focusedInteractable.Select(GenerateInteraction());
 			}
 		}
 

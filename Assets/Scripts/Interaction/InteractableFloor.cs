@@ -12,11 +12,6 @@ namespace Showroom.Interaction {
 
         [SerializeField] private FloorPointer _pointer;
 
-        public override void OnPreviewSelected(InteractionEvent ev) {
-            _pointer.Click();
-            Preview.MoveTo(ev.Point);
-        }
-
         public override void OnPreviewFocus(InteractionEvent ev) {
             _pointer.MoveTo(ev.Point);
         }
@@ -27,6 +22,11 @@ namespace Showroom.Interaction {
 
         public override void OnPreviewFocusLost(InteractionEvent ev) {
             _pointer.Disable();
+        }
+
+        protected override void OnPreviewSelected(InteractionEvent ev) {
+            _pointer.Click();
+            Preview.MoveTo(ev.Point);
         }
     }
 }

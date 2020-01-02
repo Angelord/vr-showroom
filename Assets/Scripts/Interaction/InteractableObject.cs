@@ -38,16 +38,19 @@ namespace Showroom.Interaction {
             _information.Material = option.Name;
         }
 
-        public override void OnPreviewSelected(InteractionEvent ev) {
-            Preview.FocusOn(this);
-        }
-
         public override void OnPreviewFocusGained(InteractionEvent ev) {
-            _outlineEnabledProp.Value = true;
+            if (!Selected) {
+                _outlineEnabledProp.Value = true;
+            }
         }
 
         public override void OnPreviewFocusLost(InteractionEvent ev) {
             _outlineEnabledProp.Value = false;
+        }
+
+        protected override void OnPreviewSelected(InteractionEvent ev) {
+            _outlineEnabledProp.Value = false;
+            Preview.FocusOn(this);
         }
     }
 }
