@@ -582,7 +582,9 @@ MonoBehaviour:
     _material: Black Leather
   _outlineEnabledProp: {fileID: 11400000, guid: 1017f189d9b69074788838d8fcb90f74,
     type: 2}
-  _customizationOptions: []
+  _customizationOptions:
+  - {fileID: 11400000, guid: 6c05129e0b03d4d4d8f0dacc69180609, type: 2}
+  _defaultOption: 0
 --- !u!114 &277624853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,7 +892,9 @@ MonoBehaviour:
     _material: Black Leather
   _outlineEnabledProp: {fileID: 11400000, guid: 0cdf8d09b66bdaa4392443af6303c1ed,
     type: 2}
-  _customizationOptions: []
+  _customizationOptions:
+  - {fileID: 11400000, guid: 6c05129e0b03d4d4d8f0dacc69180609, type: 2}
+  _defaultOption: 0
 --- !u!114 &629342564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1777,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: ecb7ce6b3a491784292b5fb6636214ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
+    - target: {fileID: -1504981713932161579, guid: ecb7ce6b3a491784292b5fb6636214ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ff5f1c83e3516e42970de5d706e70f1, type: 2}
     - target: {fileID: -927199367670048503, guid: ecb7ce6b3a491784292b5fb6636214ff,
         type: 3}
       propertyPath: m_Name
@@ -2311,6 +2325,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: ecb7ce6b3a491784292b5fb6636214ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
+    - target: {fileID: -1504981713932161579, guid: ecb7ce6b3a491784292b5fb6636214ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ff5f1c83e3516e42970de5d706e70f1, type: 2}
     - target: {fileID: -927199367670048503, guid: ecb7ce6b3a491784292b5fb6636214ff,
         type: 3}
       propertyPath: m_Name
@@ -2438,6 +2462,7 @@ MonoBehaviour:
   _customizationOptions:
   - {fileID: 11400000, guid: f0d99dc6b95282144a4e498c4d0c5682, type: 2}
   - {fileID: 11400000, guid: 5eed6353f4501334389c562aef7cc69a, type: 2}
+  _defaultOption: 0
 --- !u!114 &1976556226
 MonoBehaviour:
   m_ObjectHideFlags: 0
