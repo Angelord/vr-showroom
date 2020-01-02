@@ -37,9 +37,7 @@ namespace Showroom.Interaction {
 		public virtual void OnPreviewFocus(InteractionEvent ev) {
 		}
 
-		public virtual void OnPreviewClick(InteractionEvent ev) {
+		public virtual void OnPreviewSelected(InteractionEvent ev) {
 		}
-
-
 	}
 }

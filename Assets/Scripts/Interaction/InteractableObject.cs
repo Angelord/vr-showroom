@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Showroom.Customization;
 using Showroom.Materials;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Assertions;
 
 namespace Showroom.Interaction {
     public class InteractableObject : Interactable {
@@ -25,11 +23,14 @@ namespace Showroom.Interaction {
         public IReadOnlyList<CustomizationOption> CustomizationOptions => _customizationOptions;
 
         private void Start() {
+            Assert.AreNotEqual(0, _customizationOptions.Count, $"No customization options provided for {name}");
+            
             _renderer = GetComponent<MeshRenderer>();
             foreach (CustomizationOption customizationOption in _customizationOptions) {
                 customizationOption.OnSelect += OnSelectOption;
             }
-            _customizationOptions[_defaultOption].Select();
+            
+            OnSelectOption(_customizationOptions[_defaultOption]);
         }
 
         private void OnSelectOption(CustomizationOption option) {
@@ -37,7 +38,7 @@ namespace Showroom.Interaction {
             _information.Material = option.Name;
         }
 
-        public override void OnPreviewClick(InteractionEvent ev) {
+        public override void OnPreviewSelected(InteractionEvent ev) {
             Preview.FocusOn(this);
         }
 

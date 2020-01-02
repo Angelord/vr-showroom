@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: willisau_modica_chair_mat2_mtl_1
-    second: {fileID: 2100000, guid: 121da96837cd552408ebde00df631b9e, type: 2}
+    second: {fileID: 2100000, guid: 6ff5f1c83e3516e42970de5d706e70f1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: willisau_modica_chair_mat2_mtl_2
-    second: {fileID: 2100000, guid: 41db50bc04078144da04c00baccaad32, type: 2}
+    second: {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

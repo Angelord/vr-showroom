@@ -43,7 +43,7 @@ namespace Showroom {
 
 		public void OnPointerUp(Interactable obj, PointerEventData eventData) {
 			if (_clickInitiated) {
-				_focusedInteractable.OnPreviewClick(GenerateInteraction());
+				_focusedInteractable.OnPreviewSelected(GenerateInteraction());
 			}
 		}
 
