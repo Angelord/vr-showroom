@@ -38,13 +38,13 @@ namespace Showroom.Interaction {
             _information.Material = option.Name;
         }
 
-        public override void OnPreviewFocusGained(InteractionEvent ev) {
+        public override void OnPreviewMouseEnter(InteractionEvent ev) {
             if (!Selected) {
                 _outlineEnabledProp.Value = true;
             }
         }
 
-        public override void OnPreviewFocusLost(InteractionEvent ev) {
+        public override void OnPreviewMouseExit(InteractionEvent ev) {
             _outlineEnabledProp.Value = false;
         }
 

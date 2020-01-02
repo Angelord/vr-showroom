@@ -6,13 +6,13 @@ using Debug = System.Diagnostics.Debug;
 namespace Showroom {
 	public class InteractionHandler {
 
-		private Camera _camera;
+		private readonly Camera _camera;
 		private Interactable _selectedInteractable;
-		private Interactable _focusedInteractable;
+		private Interactable _hoveredInteractable;
 		private bool _clickInitiated = false;
 		
 		public InteractionHandler(Camera camera) {
-			this._camera = camera;
+			_camera = camera;
 		}
 
 		public void PreventClick() {
@@ -20,21 +20,21 @@ namespace Showroom {
 		}
 
 		public void OnPointerEnter(Interactable obj, PointerEventData eventData) {
-			if (_focusedInteractable != null) {
-				_focusedInteractable.OnPreviewFocusLost(new InteractionEvent());
+			if (_hoveredInteractable != null) {
+				_hoveredInteractable.OnPreviewMouseExit(new InteractionEvent());
 			}
 
-			_focusedInteractable = obj;
-			_focusedInteractable.OnPreviewFocusGained(GenerateInteraction());
+			_hoveredInteractable = obj;
+			_hoveredInteractable.OnPreviewMouseEnter(GenerateInteraction());
 			_clickInitiated = false;
 		}
 
 		public void OnPointerExit(Interactable obj, PointerEventData eventData) {
-			if (_focusedInteractable != null) {
-				_focusedInteractable.OnPreviewFocusLost(new InteractionEvent());
+			if (_hoveredInteractable != null) {
+				_hoveredInteractable.OnPreviewMouseExit(new InteractionEvent());
 			}
 
-			_focusedInteractable = null;
+			_hoveredInteractable = null;
 			_clickInitiated = false;
 		}
 
@@ -46,16 +46,16 @@ namespace Showroom {
 			if (_clickInitiated) {
 				_selectedInteractable?.Deselect();
 
-				_selectedInteractable = _focusedInteractable;
-				_focusedInteractable.Select(GenerateInteraction());
+				_selectedInteractable = _hoveredInteractable;
+				_hoveredInteractable.Select(GenerateInteraction());
 			}
 		}
 
 		public void FixedUpdate() {
-			if (_focusedInteractable == null) { return; }
+			if (_hoveredInteractable == null) { return; }
 			
 			InteractionEvent ev = GenerateInteraction();
-			_focusedInteractable.OnPreviewFocus(ev);
+			_hoveredInteractable.OnPreviewMouse(ev);
 		}
 		
 		private InteractionEvent GenerateInteraction() {

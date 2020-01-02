@@ -41,13 +41,13 @@ namespace Showroom.Interaction {
 			OnPreviewDeselected();
 		}
 
-		public virtual void OnPreviewFocusGained(InteractionEvent ev) {
+		public virtual void OnPreviewMouseEnter(InteractionEvent ev) {
 		}
 
-		public virtual void OnPreviewFocusLost(InteractionEvent ev) {
+		public virtual void OnPreviewMouseExit(InteractionEvent ev) {
 		}
 
-		public virtual void OnPreviewFocus(InteractionEvent ev) {
+		public virtual void OnPreviewMouse(InteractionEvent ev) {
 		}
 
 		protected virtual void OnPreviewSelected(InteractionEvent ev) {
