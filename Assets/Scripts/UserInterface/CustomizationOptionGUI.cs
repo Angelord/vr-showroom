@@ -27,15 +27,17 @@ namespace Showroom.UserInterface {
 				_image.sprite = customizationOption.Preview;
 				
 				_animator.SetBool(AnimHidden, false);
-				
-				_text.raycastTarget = _image.raycastTarget = _button.targetGraphic.raycastTarget = true;
 			});
 		}
         
 		public void Hide() {
 			_animator.SetBool(AnimHidden, true);
 		}
-		
+
+		public void OnShowAnimationEnd() {
+			_text.raycastTarget = _image.raycastTarget = _button.targetGraphic.raycastTarget = true;
+		}
+
 		public void OnHideAnimationEnd() {
 			_text.raycastTarget = _image.raycastTarget = _button.targetGraphic.raycastTarget = false;
 		}
