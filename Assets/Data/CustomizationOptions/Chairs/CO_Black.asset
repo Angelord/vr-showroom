@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CO_Black
   m_EditorClassIdentifier: 
   _name: Black Fabric
-  _preview: {fileID: 21300000, guid: 85f2ffd68391ff74abce3c64669ea135, type: 3}
+  _preview: {fileID: 2800000, guid: b0d9c82d39cb1024b9f61a9c894cd59e, type: 3}
   _materials:
   - {fileID: 2100000, guid: 6ff5f1c83e3516e42970de5d706e70f1, type: 2}
   - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8bbf52dcaeebf64eaa5ef826ee3a5a4, type: 3}
-  m_Name: CO_Wheat
+  m_Name: CO_LightBlue
   m_EditorClassIdentifier: 
-  _name: Wheat Fabric
-  _preview: {fileID: 2800000, guid: 472270d3bebb3fb479da8ddb1f42b9e3, type: 3}
+  _name: Red Fabric
+  _preview: {fileID: 2800000, guid: 5617afe684b467f4284a442e3504fc04, type: 3}
   _materials:
-  - {fileID: 2100000, guid: 236e6d579c71a784f92d3d63ff16fb22, type: 2}
-  - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
+  - {fileID: 2100000, guid: 4c2c7dac3a46d25488a972012a7e8160, type: 2}
+  - {fileID: 2100000, guid: 64388a03029f8024bb36f770f2c20156, type: 2}

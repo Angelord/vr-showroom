@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CO_Red
   m_EditorClassIdentifier: 
   _name: Red Fabric
-  _preview: {fileID: 21300000, guid: fa2505678b15a114daf499b3f3306a67, type: 3}
+  _preview: {fileID: 2800000, guid: 980fa9de6a71607408904ae05ae2cc7f, type: 3}
   _materials:
   - {fileID: 2100000, guid: 275f04963d6ea0947b869000c25c8351, type: 2}
   - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
