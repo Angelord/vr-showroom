@@ -27,7 +27,7 @@
                 #include "UnityCG.cginc"
  
                 static const float OUTLINE_WIDTH = 0.005;
-                const fixed4 OUTLINE_COLOR = fixed4(1, 1, 1, 1);
+                static const fixed4 OUTLINE_COLOR = fixed4(1.0, 1.0, 1.0, 1.0);
                 
                 half _OutlineEnabled;
  
@@ -67,7 +67,7 @@
     
             struct Input
             {
-                float2 uv_MainTex;
+                float2 uv_CurrentAlbedo;
             };
     
             half _AlbedoBlend;
@@ -84,8 +84,8 @@
             void surf (Input IN, inout SurfaceOutputStandard o)
             {
                 // Albedo comes from a texture tinted by color
-                fixed4 cCurAl = tex2D (_CurrentAlbedo, IN.uv_MainTex);
-                fixed4 cTarAl = tex2D (_TargetAlbedo, IN.uv_MainTex);
+                fixed4 cCurAl = tex2D (_CurrentAlbedo, IN.uv_CurrentAlbedo);
+                fixed4 cTarAl = tex2D (_TargetAlbedo, IN.uv_CurrentAlbedo);
                 
                 fixed4 c = cTarAl * _AlbedoBlend + cCurAl * (1.0 - _AlbedoBlend); 
                 o.Albedo = c.rgb;

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bbf52dcaeebf64eaa5ef826ee3a5a4, type: 3}
+  m_Name: CO_Brown
+  m_EditorClassIdentifier: 
+  _name: Brown
+  _preview: {fileID: 2800000, guid: 1ecad5dac8a5d5645afb4111f6d3e454, type: 3}
+  _materialOptions:
+  - _abledo: {fileID: 2800000, guid: f16aa4e51984b554899349a5dba20d6f, type: 3}
+  - _abledo: {fileID: 2800000, guid: 1ecad5dac8a5d5645afb4111f6d3e454, type: 3}
