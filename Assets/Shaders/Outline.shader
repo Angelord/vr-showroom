@@ -2,12 +2,12 @@
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _CurrentAlbedo ("Albedo (RGB)", 2D) = "white" {}
+        _TargetAlbedo ("Target Albedo (RGB)", 2D) = "white" {}
+        _AlbedoBlend("Albedo Blenb", Range(0, 1)) = 0.0
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
         [MaterialToggle][PerRendererData] _OutlineEnabled("Outline Enabled", Float) = 0
-        _OutlineColor ("Outline Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -27,7 +27,8 @@
                 #include "UnityCG.cginc"
  
                 static const float OUTLINE_WIDTH = 0.005;
-                fixed4 _OutlineColor;
+                const fixed4 OUTLINE_COLOR = fixed4(1, 1, 1, 1);
+                
                 half _OutlineEnabled;
  
                 struct v2f {
@@ -45,7 +46,7 @@
  
                 half4 frag( v2f i ) : COLOR
                 {
-                    return _OutlineColor;
+                    return OUTLINE_COLOR;
                 }
             ENDCG          
         }
@@ -61,16 +62,17 @@
             // Use shader model 3.0 target, to get nicer looking lighting
             #pragma target 3.0
     
-            sampler2D _MainTex;
+            sampler2D _CurrentAlbedo;
+            sampler2D _TargetAlbedo;
     
             struct Input
             {
                 float2 uv_MainTex;
             };
     
+            half _AlbedoBlend;
             half _Glossiness;
             half _Metallic;
-            fixed4 _Color;
     
             // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
             // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -82,7 +84,10 @@
             void surf (Input IN, inout SurfaceOutputStandard o)
             {
                 // Albedo comes from a texture tinted by color
-                fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                fixed4 cCurAl = tex2D (_CurrentAlbedo, IN.uv_MainTex);
+                fixed4 cTarAl = tex2D (_TargetAlbedo, IN.uv_MainTex);
+                
+                fixed4 c = cTarAl * _AlbedoBlend + cCurAl * (1.0 - _AlbedoBlend); 
                 o.Albedo = c.rgb;
                 // Metallic and smoothness come from slider variables
                 o.Metallic = _Metallic;

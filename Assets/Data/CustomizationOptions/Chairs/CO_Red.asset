@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Red Fabric
   _preview: {fileID: 2800000, guid: 980fa9de6a71607408904ae05ae2cc7f, type: 3}
-  _materials:
-  - {fileID: 2100000, guid: 275f04963d6ea0947b869000c25c8351, type: 2}
-  - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
+  _materialOptions:
+  - _abledo: {fileID: 2800000, guid: 980fa9de6a71607408904ae05ae2cc7f, type: 3}
+  - _abledo: {fileID: 2800000, guid: 2226c5b31e89ded43b95b98501ae02d6, type: 3}

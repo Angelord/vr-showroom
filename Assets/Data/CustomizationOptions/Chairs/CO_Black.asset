@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Black Fabric
   _preview: {fileID: 2800000, guid: b0d9c82d39cb1024b9f61a9c894cd59e, type: 3}
-  _materials:
-  - {fileID: 2100000, guid: 6ff5f1c83e3516e42970de5d706e70f1, type: 2}
-  - {fileID: 2100000, guid: adf95d49d3c6290419ff60485a836b47, type: 2}
+  _materialOptions:
+  - _abledo: {fileID: 2800000, guid: b0d9c82d39cb1024b9f61a9c894cd59e, type: 3}
+  - _abledo: {fileID: 2800000, guid: 2226c5b31e89ded43b95b98501ae02d6, type: 3}

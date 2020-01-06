@@ -10,7 +10,7 @@ namespace Showroom.Materials {
     public class PerRendererMaterialOptions : MonoBehaviour {
 
         [SerializeField] private List<MaterialProperty> _materialProperties = new List<MaterialProperty>();
-        private MaterialPropertyBlock _propertyBlock ;
+        private MaterialPropertyBlock _propertyBlock;
         private Renderer _renderer;
 
         private void Start() {

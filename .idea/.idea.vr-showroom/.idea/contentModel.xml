@@ -52,6 +52,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Customization" t="Include">
+            <e p="CustomizationMaterialControl.cs" t="Include" />
             <e p="CustomizationOption.cs" t="Include" />
           </e>
           <e p="Interaction" t="Include">

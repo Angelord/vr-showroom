@@ -5,15 +5,15 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Showroom.Interaction {
+    [RequireComponent(typeof(CustomizationMaterialControl))]
     public class InteractableObject : Interactable {
 
         [SerializeField] private Transform _initialTransform;
         [SerializeField] private Transform _focusCenter;
         [SerializeField] private ObjectInformation _information;
-        [SerializeField] private MaterialPropertyBool _outlineEnabledProp;
         [SerializeField] private List<CustomizationOption> _customizationOptions;
         [SerializeField] private int _defaultOption;
-        private MeshRenderer _renderer;
+        private CustomizationMaterialControl _materialControl;
         
         public Vector3 InitialPosition => _initialTransform.position;
         public Vector3 FocusCenter => _focusCenter.position;
@@ -24,8 +24,9 @@ namespace Showroom.Interaction {
 
         private void Start() {
             Assert.AreNotEqual(0, _customizationOptions.Count, $"No customization options provided for {name}");
+
+            _materialControl = GetComponent<CustomizationMaterialControl>();
             
-            _renderer = GetComponent<MeshRenderer>();
             foreach (CustomizationOption customizationOption in _customizationOptions) {
                 customizationOption.OnSelect += OnSelectOption;
             }
@@ -34,22 +35,22 @@ namespace Showroom.Interaction {
         }
 
         private void OnSelectOption(CustomizationOption option) {
-            _renderer.materials = option.Materials;
+            _materialControl.SetCustomizationOption(option);
             _information.Material = option.Name;
         }
 
         public override void OnPreviewMouseEnter(InteractionEvent ev) {
             if (!Selected) {
-                _outlineEnabledProp.Value = true;
+                _materialControl.OutlineEnabled = true;
             }
         }
 
         public override void OnPreviewMouseExit(InteractionEvent ev) {
-            _outlineEnabledProp.Value = false;
+            _materialControl.OutlineEnabled = false;
         }
 
         protected override void OnPreviewSelected(InteractionEvent ev) {
-            _outlineEnabledProp.Value = false;
+            _materialControl.OutlineEnabled = false;
             Preview.FocusOn(this);
         }
     }
