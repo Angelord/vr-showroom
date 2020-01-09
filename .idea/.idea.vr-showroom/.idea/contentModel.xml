@@ -87,6 +87,7 @@
         </e>
         <e p="Shaders" t="Include">
           <e p="Outline.shader" t="Include" />
+          <e p="Wall.shader" t="Include" />
         </e>
         <e p="TODO.txt" t="Include" />
       </e>

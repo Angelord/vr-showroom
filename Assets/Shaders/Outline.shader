@@ -12,6 +12,7 @@
     SubShader
     {
         LOD 200
+        Tags { "RenderType"="Opaque" }
 
         Pass
         {
@@ -19,14 +20,14 @@
             Name "Outline"
             Cull Front
             ZTest [_ZTest]
-            
+
             CGPROGRAM
                 #pragma vertex vert
                 #pragma fragment frag
                 #pragma fragmentoption ARB_precision_hint_fastest
                 #include "UnityCG.cginc"
  
-                static const float OUTLINE_WIDTH = 0.005;
+                static const float OUTLINE_WIDTH = 0.01;
                 static const fixed4 OUTLINE_COLOR = fixed4(1.0, 1.0, 1.0, 1.0);
                 
                 half _OutlineEnabled;
@@ -51,11 +52,9 @@
             ENDCG          
         }
         
-        
-        
-        Tags { "RenderType"="Opaque" }
-        Cull Off
         CGPROGRAM
+        
+            
             // Physically based Standard lighting model, and enable shadows on all light types
             #pragma surface surf Standard fullforwardshadows
     

@@ -25,8 +25,7 @@ namespace Showroom.UserInterface {
 
 				_text.text = customizationOption.Name;
 
-				Texture2D prevTexture = customizationOption.Preview;
-				_image.sprite = Sprite.Create(prevTexture, new Rect(0.0f, 0.0f, prevTexture.width, prevTexture.height), new Vector2(0.5f, 0.5f));
+				_image.sprite = customizationOption.PreviewSprite;
 				
 				_animator.SetBool(AnimHidden, false);
 			});

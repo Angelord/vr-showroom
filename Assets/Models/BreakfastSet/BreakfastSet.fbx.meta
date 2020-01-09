@@ -3,7 +3,67 @@ guid: bae42cb84c0d4bd40b6369e0052416ec
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_1
+    second: {fileID: 2100000, guid: d0f1ed445865d91419537eea06bcf2c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_10
+    second: {fileID: 2100000, guid: 58273ba9f9e031940b943f6a5974a7c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_11
+    second: {fileID: 2100000, guid: 2e91e42a6f06aff4d88b027379220a33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_12
+    second: {fileID: 2100000, guid: 05abd3a0ac3b6ba4db0b3c3a51aa9f11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_2
+    second: {fileID: 2100000, guid: 93052e6d40adfa0469448b86b2c187b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_3
+    second: {fileID: 2100000, guid: 93bf6636ac924f548bd7ea0d44c79a54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_4
+    second: {fileID: 2100000, guid: 1a1b1930c83d762459379369fc60719a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_5
+    second: {fileID: 2100000, guid: 666cbb30b022e3b478a55c6e3d5a845c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_6
+    second: {fileID: 2100000, guid: b6aca53bf1463c342aceef899586f778, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_7
+    second: {fileID: 2100000, guid: 330580ac6596f86429a72a7d46c5fc3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_8
+    second: {fileID: 2100000, guid: 7ec3b8abd0889484f89d7fa1625e87fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breakfast_set_mtl_9
+    second: {fileID: 2100000, guid: c37db37fa6467e344a9f9233af06c23e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -81,7 +141,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.015
+    globalScale: 1.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

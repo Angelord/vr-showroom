@@ -51,6 +51,7 @@ namespace Showroom.Navigation {
             _focusing = true;
             
             var tween = transform.DOMove(_target.InitialPosition, 1.5f);
+            
             tween.onUpdate += () => {
                 Vector3 lookVector = _target.FocusCenter - transform.position;
                 Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
@@ -64,10 +65,9 @@ namespace Showroom.Navigation {
         }
 
         private void Update() {
-
             if (_focusing) {
                 _rotating = false;
-                return;;
+                return;
             }
 
             HandleZoom();

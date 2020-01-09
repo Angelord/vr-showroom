@@ -17,3 +17,4 @@ MonoBehaviour:
   _materialOptions:
   - _abledo: {fileID: 2800000, guid: 980fa9de6a71607408904ae05ae2cc7f, type: 3}
   - _abledo: {fileID: 2800000, guid: 2226c5b31e89ded43b95b98501ae02d6, type: 3}
+  _previewSprite: {fileID: 0}
