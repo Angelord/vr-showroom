@@ -1379,9 +1379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed349e2b45b44f5886359495e71e0f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSensitivity: 3
+  _rotateSensitivity: 1.5
   _maxZoom: 0.8
-  _zoomSpeed: 50
+  _zoomSpeed: 17
+  _inertiaMultiplier: 0.94
 --- !u!114 &363620173
 MonoBehaviour:
   m_ObjectHideFlags: 0
