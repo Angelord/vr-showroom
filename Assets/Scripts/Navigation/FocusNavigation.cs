@@ -56,9 +56,6 @@ namespace Showroom.Navigation {
             
             var tween = transform.DOMove(_target.InitialPosition, 1.4f);
             
-//            Vector3 lookVector = _target.FocusCenter - _target.InitialPosition;
-//            Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
-            
             tween.onUpdate += () => {
                 Vector3 lookVector = _target.FocusCenter - transform.position;
                 Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
