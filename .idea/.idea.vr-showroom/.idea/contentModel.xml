@@ -42,6 +42,25 @@
             </e>
             <e p="FullscreenEditor.asmdef" t="Include" />
           </e>
+          <e p="Interior Asset" t="Include">
+            <e p="readme.txt" t="Include" />
+            <e p="Source" t="Include">
+              <e p="InteriorPlant" t="Include">
+                <e p="Cactus" t="Include">
+                  <e p="Flower" t="Include">
+                    <e p="Materials" t="Include">
+                      <e p="Double Sided Transparent Diffuse Bump Cutout.shader" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Grass" t="Include">
+                  <e p="Materials" t="Include">
+                    <e p="Double Sided Transparent Diffuse Bump Cutout.shader" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Art" t="Include">
           <e p="Fonts" t="Include">

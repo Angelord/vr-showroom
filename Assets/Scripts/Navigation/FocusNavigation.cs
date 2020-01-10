@@ -6,8 +6,10 @@ using UnityEngine.Serialization;
 namespace Showroom.Navigation {
     public class FocusNavigation : PreviewNavigation {
 
-        private const float MinRotationZ = 76.0f;
-        private const float MaxRotationZ = 156.0f;
+
+        private const float LOOK_AT_SPEED = 8.0f;
+        private const float MIN_ROTATION_Z = 76.0f;
+        private const float MAX_ROTATION_Z = 156.0f;
 
         [SerializeField] private float _rotateSensitivity = 2.0f;
         [SerializeField] private float _maxZoom = 1.5f;
@@ -50,19 +52,22 @@ namespace Showroom.Navigation {
             
             transform.SetParent(null);
             _focusPoint.position = _target.FocusCenter;
-            transform.SetParent(_focusPoint);
             _focusing = true;
             
-            var tween = transform.DOMove(_target.InitialPosition, 1.5f);
+            var tween = transform.DOMove(_target.InitialPosition, 1.4f);
+            
+//            Vector3 lookVector = _target.FocusCenter - _target.InitialPosition;
+//            Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
             
             tween.onUpdate += () => {
                 Vector3 lookVector = _target.FocusCenter - transform.position;
                 Quaternion targetRot = Quaternion.LookRotation(lookVector, Vector3.up);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.5f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, LOOK_AT_SPEED * Time.deltaTime);
             };
 
             tween.onComplete += () => {
-                transform.LookAt(target.FocusCenter);
+                transform.DOLookAt(target.FocusCenter, 0.2f);
+                transform.SetParent(_focusPoint);
                 _focusing = false;
             };
         }
@@ -109,7 +114,7 @@ namespace Showroom.Navigation {
             _focusPoint.Rotate(Vector3.up, offset.x, Space.World);
 
             float camAngle = Vector3.Angle(_camera.transform.forward, Vector3.up);
-            if ((offset.y > 0.0f && camAngle > MinRotationZ) || (offset.y < 0.0f && camAngle < MaxRotationZ)) {
+            if ((offset.y > 0.0f && camAngle > MIN_ROTATION_Z) || (offset.y < 0.0f && camAngle < MAX_ROTATION_Z)) {
                 Vector3 lookDir = _focusPoint.position - transform.position;
                 Vector3 camRight = Vector3.Cross(lookDir, Vector3.up);
                 _focusPoint.Rotate(camRight, offset.y, Space.World);
